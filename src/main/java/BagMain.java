@@ -5,6 +5,7 @@
  * You may find the readings in chapter 3. Relationships between Classes
  * helpful while working through this exercise.
  */
+
 class BagMain {
     /**
      * TODO: Implement this method
@@ -16,6 +17,16 @@ class BagMain {
      */
     public static void enhanceBags(Bag[] bags, boolean double_enhance_handbags) {
         // TODO: Implement this.
+        for(Bag b : bags){
+            b.enhance();
+        }
+        if (double_enhance_handbags){
+            for(Bag b : bags){
+                if(b instanceof HandBag){
+                    b.enhance();
+                }
+            }
+        }
     }
 
     /**
@@ -29,5 +40,14 @@ class BagMain {
      */
     public static int countCrossbodyStraps(Bag[] bags) {
         // TODO: Implement this.
+        int x = 0;
+        for(Bag b : bags){
+            if(b instanceof CrossbodyBag){
+                x += ((CrossbodyBag) b).getNumberOfStraps();
+            }
+        }
+        return x;
     }
+
+
 }
